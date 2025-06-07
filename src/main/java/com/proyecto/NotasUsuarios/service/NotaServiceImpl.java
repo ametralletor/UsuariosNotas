@@ -20,11 +20,15 @@ public class NotaServiceImpl extends AbstractCrudService<Notas, Long> implements
         this.notaRepo = repo;
     }
 
+    @Override
     public List<Notas> getNotasByUsuarioId(Long usuarioId, String order) {
         Sort sort = Sort.by("fechaCreacion");
         sort = order.equalsIgnoreCase("desc") ? sort.descending() : sort.ascending();
         return notaRepo.findByUsuarioId(usuarioId, sort);
     }
+
+
+
 
     
 }
