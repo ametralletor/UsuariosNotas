@@ -14,11 +14,16 @@ import org.springframework.transaction.annotation.Transactional;
 public class NotaServiceImpl extends AbstractCrudService<Notas, Long> implements NotaService {
 
     private final NotaRepository notaRepo;
+    //private final UsuarioService usuarioService;
 
-    public NotaServiceImpl(NotaRepository repo) {
+    public NotaServiceImpl(NotaRepository repo //,UsuarioService usuarioService
+    ){
         super(repo);
         this.notaRepo = repo;
+        //this.usuarioService = usuarioService;
     }
+
+
 
     @Override
     public List<Notas> getNotasByUsuarioId(Long usuarioId, String order) {
@@ -26,9 +31,15 @@ public class NotaServiceImpl extends AbstractCrudService<Notas, Long> implements
         sort = order.equalsIgnoreCase("desc") ? sort.descending() : sort.ascending();
         return notaRepo.findByUsuarioId(usuarioId, sort);
     }
-
-
-
+/* 
+    @Override
+    public Notas save(Notas nota) {
+        if(nota.getUsuario() == null || nota.getUsuario().getId() == null) {
+            throw new IllegalArgumentException("El usuario de la nota no puede ser ninguno o no tener ID.");
+        }
+        return super.save(nota);
+    }
+*/
 
     
 }

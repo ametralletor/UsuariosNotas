@@ -31,7 +31,7 @@ public class Notas {
     private String contenido;
 
     
-    private LocalDateTime fechaCreacion;
+    private LocalDateTime fechaCreacion = LocalDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)

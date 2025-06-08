@@ -48,10 +48,10 @@ public class NotaController {
     }
     
     @GetMapping("/{id}")
-    public Notas getNotaById(@PathVariable Long id) {
-        return notaService.getById(id).orElseThrow(
-            () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Nota con ID " + id + " no encontrada")
-        );
+    public ResponseEntity<Notas> getNotaById(@PathVariable Long id) {
+        return notaService.getById(id)
+                .map(ResponseEntity::ok)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Nota no encontrada"));
     }
 
     @PostMapping
