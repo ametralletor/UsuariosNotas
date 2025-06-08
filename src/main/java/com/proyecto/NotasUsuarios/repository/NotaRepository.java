@@ -1,6 +1,5 @@
 package com.proyecto.NotasUsuarios.repository;
 
-
 import com.proyecto.NotasUsuarios.model.Notas;
 
 import java.util.List;
