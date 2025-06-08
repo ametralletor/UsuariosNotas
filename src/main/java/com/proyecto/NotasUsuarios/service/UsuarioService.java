@@ -8,4 +8,5 @@ import java.util.List;
 public interface UsuarioService extends CrudService<Usuario, Long> {
 
     List<Usuario> searchUsuario(String nombre, String email, Sort sort);
+    boolean existsByEmail(String email);
 }

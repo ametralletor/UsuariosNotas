@@ -1,6 +1,7 @@
 package com.proyecto.NotasUsuarios.controller;
 
 import java.util.List;
+
 import com.proyecto.NotasUsuarios.model.Usuario;
 import com.proyecto.NotasUsuarios.service.UsuarioService;
 import jakarta.validation.Valid;
@@ -29,6 +30,9 @@ public class UsuarioController {
 
     @PostMapping
     public ResponseEntity<Usuario> createUsuario(@Valid @RequestBody Usuario usuario){
+        if (usuarioService.existsByEmail(usuario.getEmail())){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Este Email ya esta Regitrado");
+        }
         Usuario created = usuarioService.save(usuario);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
