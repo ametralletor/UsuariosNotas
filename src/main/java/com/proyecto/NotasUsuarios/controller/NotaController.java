@@ -2,6 +2,7 @@ package com.proyecto.NotasUsuarios.controller;
 
 import com.proyecto.NotasUsuarios.model.*;
 import com.proyecto.NotasUsuarios.service.NotaService;
+import com.proyecto.NotasUsuarios.service.UsuarioService;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Positive;
@@ -33,9 +34,11 @@ import org.springframework.web.server.ResponseStatusException;
 @Validated
 public class NotaController {
     private final NotaService notaService;
+    private final UsuarioService usuarioService;
 
-    public NotaController(NotaService notaService) {
+    public NotaController(NotaService notaService, UsuarioService usuarioService) {
         this.notaService = notaService;
+        this.usuarioService = usuarioService;
     }
 
     @GetMapping
