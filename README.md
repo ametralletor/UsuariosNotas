@@ -3,7 +3,7 @@ API REST Usuarios y Notas Aday Sánchez y Juan Felipe
 
 ##  Nombre del Proyecto:
 
-*Sistema de personajes de videojuego*
+*API REST de Usuarios y Notas*
 
 **AUTORES**
 - Aday Sanchez
