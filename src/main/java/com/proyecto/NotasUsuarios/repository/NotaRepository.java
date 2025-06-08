@@ -9,6 +9,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface NotaRepository extends JpaRepository<Notas, Long> {
-    List<Notas> findByUsuarioId(Long usuarioId, Sort sort);
+    List<Notas> findByUsuarioId(Long usuarioId, String sort);
     
 }
