@@ -37,7 +37,7 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
-    @PutMapping("/usuarios/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Usuario> updateUsuario(
             @PathVariable("id") Long id,
             @RequestBody @Valid Usuario usuario){

@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -42,5 +44,10 @@ public class UsuarioServiceImpl extends AbstractCrudService<Usuario, Long> imple
         return UsuarioRepo.findByNombreOrEmail(
                 nombreFilter, emailFilter, sort
         );
+    }
+
+    @Override
+    public Optional<Usuario> findByEmail(String email) {
+        return UsuarioRepo.findByEmail(email);
     }
 }

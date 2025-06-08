@@ -49,7 +49,9 @@ public class NotaController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Orden debe ser 'asc' o 'desc'");
             
         }
-        return ResponseEntity.ok(notaService.getNotasByUsuarioId(usuarioId, order));
+
+        Sort sort = order.equalsIgnoreCase("asc") ? Sort.by("fechaCreacion").ascending() : Sort.by("fechaCreacion").descending();
+        return ResponseEntity.ok(notaService.getNotasByUsuarioId(usuarioId, sort));
     }
     
     @GetMapping("/{id}")

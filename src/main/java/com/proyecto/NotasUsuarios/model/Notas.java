@@ -18,6 +18,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
+@Table(name = "notas")
 public class Notas {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,10 +27,12 @@ public class Notas {
     private String titulo;
 
     @Lob
+    @NotBlank
     private String contenido;
 
     private LocalDateTime fechaCreacion = LocalDateTime.now();
-
+    
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;

@@ -35,7 +35,7 @@ public class Usuario {
     @Column(nullable = false)
     private String contrasenna;
 
-    @OneToMany(mappedBy = "notas",
+    @OneToMany(mappedBy = "usuario",
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )

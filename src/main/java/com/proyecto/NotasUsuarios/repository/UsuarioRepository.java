@@ -3,6 +3,8 @@ package com.proyecto.NotasUsuarios.repository;
 import com.proyecto.NotasUsuarios.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.domain.Sort;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
@@ -14,4 +16,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
             String email,
             Sort sort
     );
+
+    Optional<Usuario> findByEmail(String email);
 }
