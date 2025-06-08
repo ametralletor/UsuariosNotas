@@ -25,7 +25,11 @@ public class NotaServiceImpl extends AbstractCrudService<Notas, Long> implements
 
     @Override
     public List<Notas> getNotasByUsuarioId(Long usuarioId, Sort sort) {
+           if (usuarioId == null) {
+        return notaRepo.findAll(sort);  
+    } else {
         return notaRepo.findByUsuarioId(usuarioId, sort);
+    }
     }
 
 

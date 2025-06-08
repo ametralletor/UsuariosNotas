@@ -41,6 +41,7 @@ public class NotaController {
         this.usuarioService = usuarioService;
     }
 
+    
     @GetMapping
     public ResponseEntity<List<Notas>> getAllNotas(
         @RequestParam(required = false) @Positive Long usuarioId, 
