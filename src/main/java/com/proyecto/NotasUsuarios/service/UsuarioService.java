@@ -1,5 +1,11 @@
 package com.proyecto.NotasUsuarios.service;
 
-public class UsuarioService {
-    
+import com.proyecto.NotasUsuarios.model.Usuario;
+import org.springframework.data.domain.Sort;
+
+import java.util.List;
+
+public interface UsuarioService extends CrudService<Usuario, Long> {
+
+    List<Usuario> searchUsuario(String nombre, String email, Sort sort);
 }
