@@ -7,6 +7,8 @@ import org.springframework.data.domain.Sort;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
+    boolean existsByEmail(String email);
+
     List<Usuario> findByNombreOrEmail(
             String nombre,
             String email,
